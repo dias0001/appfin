@@ -16,7 +16,7 @@
 
 <div class="container d-flex">
     <div class="col-md-6 p-3">
-        <h2>Receitas: R$ {{$totReceitas}}</h2>
+        <h2>Receitas: R$ {{ number_format($totReceitas, 2, ',', '.')}}</h2>
 
         @if(count($receitas) == 0)
           <p>Não há movimentação de receitas</p>
@@ -25,7 +25,7 @@
              <div class="card mb-4">
                 <div class="card-body">
                     <p class="card-title">{{$receita->descricao}}</p>
-                    <p class="card-text">R$ {{$receita->valor}}</p>
+                    <p class="card-text">R$ {{number_format($receita->valor, 2, ',', '.')}}</p>
                 </div>
                 <div class="card-footer">
                     <span>{{ \Carbon\Carbon::parse($receita->created_at)->format('d/m/y')}}</span>
